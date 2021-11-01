@@ -18,10 +18,8 @@ def generate_courses(AMOUNT_OF_COURSES):
 
     return courses    
 
-def generate_classes(courses, teachers, AMOUNT_OF_YEARS):
+def generate_classes(courses, teachers, AMOUNT_OF_YEARS, YEAR_START):
     CLASS_TYPES = ['Wyklad' , 'Cwiczenia', 'Laboratoria']
-    YEAR_START = 2019
-
     class_id = 1
     classes = []
     for present_year in range(AMOUNT_OF_YEARS):

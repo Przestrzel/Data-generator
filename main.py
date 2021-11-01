@@ -52,8 +52,8 @@ entities_to_bulk('data/first_snapshot/student_classes.bulk', student_classes)
 AMOUNT_OF_NEW_STUDENTS = int(AMOUNT_OF_STUDENTS / 5)
 AMOUNT_OF_NEW_TEACHERS = int(AMOUNT_OF_TEACHERS / 5)
 
-new_students = generate_people(student_startbirth, student_endbirth, AMOUNT_OF_NEW_STUDENTS, students_id, 0)
-new_teachers = generate_people(teacher_startbirth, teacher_endbirth, AMOUNT_OF_NEW_TEACHERS, teachers_id, 2)
+new_students = generate_people(student_startbirth, student_endbirth, AMOUNT_OF_NEW_STUDENTS, students_id + len(students), 0)
+new_teachers = generate_people(teacher_startbirth, teacher_endbirth, AMOUNT_OF_NEW_TEACHERS, teachers_id + len(teachers), 2)
 new_people = new_students + new_teachers
 
 #! Changing last_name for requirements of datawarehouse
@@ -65,10 +65,10 @@ for _ in range(int((AMOUNT_OF_STUDENTS + AMOUNT_OF_NEW_STUDENTS) / 5)):
     all_students[random.randint(0, AMOUNT_OF_STUDENTS + AMOUNT_OF_NEW_STUDENTS - 1)].degree = 'Inzynier'
 
 AMOUNT_OF_NEW_COURSES = AMOUNT_OF_NEW_TEACHERS
-new_courses = generate_courses(AMOUNT_OF_NEW_COURSES)
+new_courses = generate_courses(AMOUNT_OF_NEW_COURSES, 1 + len(courses))
 
 AMOUNT_OF_YEARS = 1 # amount of years to simulate
-new_classes = generate_classes(new_courses+courses, new_teachers+teachers, AMOUNT_OF_YEARS, YEAR_START)
+new_classes = generate_classes(new_courses+courses, new_teachers+teachers, AMOUNT_OF_YEARS, YEAR_START, 1 + len(classes))
 
 new_students_faculty = []
 for _ in range(AMOUNT_OF_NEW_STUDENTS):

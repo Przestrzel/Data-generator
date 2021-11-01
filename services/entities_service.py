@@ -6,21 +6,19 @@ from entities.StudentsClass import StudentsClass
 from services.file_service import *
 
 FACULTIES = ['AA', 'ETI', 'ABC', 'EEE', 'IEEE', 'DJE', 'GHE', 'PE', 'PHE', 'ZE', 'UU']
-def generate_courses(AMOUNT_OF_COURSES):
-    courses_id = 1
+def generate_courses(AMOUNT_OF_COURSES, course_id = 1):
     courses = []
     for _ in range(AMOUNT_OF_COURSES):
         Faker.seed(random.randint(0, 1_000_000_000))
         faker = Faker()
-        new_course = Course(courses_id, faker.job(), random.randint(80, 500), faker.catch_phrase(), FACULTIES[random.randint(0, len(FACULTIES) - 1)])
-        courses_id += 1
+        new_course = Course(course_id, faker.job(), random.randint(80, 500), faker.catch_phrase(), FACULTIES[random.randint(0, len(FACULTIES) - 1)])
+        course_id += 1
         courses.append(new_course)
 
     return courses    
 
-def generate_classes(courses, teachers, AMOUNT_OF_YEARS, YEAR_START):
+def generate_classes(courses, teachers, AMOUNT_OF_YEARS, YEAR_START, class_id = 1):
     CLASS_TYPES = ['Wyklad' , 'Cwiczenia', 'Laboratoria']
-    class_id = 1
     classes = []
     for present_year in range(AMOUNT_OF_YEARS):
         for class_type in CLASS_TYPES:

@@ -21,13 +21,13 @@ class Person:
             self.gender = 'kobieta'
         else:
             self.gender = 'mezczyzna'
-    
+
+    def get_entity_list(self):
+        return [self.id, self.first_name, self.last_name] #If student add city!
+        
     def random_phone_number(self):
         phone_number = ''
         for i in range(3):
             phone_number += str(random.randint(300, 999))
         
         return phone_number
-
-    def __str__(self):
-        return str(self.first_name) + ' ' + str(self.last_name) + ' ' + str(self.email) + ' ' + self.degree + ' ' +  self.street + ' ' + self.post_code + ' ' + self.city + ' | ' + self.pesel + ' ' + str(self.birthdate)

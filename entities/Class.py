@@ -18,3 +18,6 @@ class Class:
         string_start_hour = str(start_hour) + ':15'
         string_end_hour = str(start_hour + random.randint(1,2)) + ':15'
         return string_start_hour, string_end_hour
+
+    def get_entity_list(self):
+        return [self.id, self.course_id, self.teacher_id, self.day, self.start_hour, self.end_hour, self.year, self.term, self.type, self.faculty]

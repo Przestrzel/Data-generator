@@ -9,7 +9,7 @@ from services.entities_service import generate_classes
 from services.entities_service import generate_student_classes
 from services.entities_service import entities_to_bulk
 from services.entities_service import FACULTIES
-        
+
 ### Generating first snapshot
 AMOUNT_OF_STUDENTS = 30
 students_id = 10_000
@@ -74,13 +74,15 @@ new_students_faculty = []
 for _ in range(AMOUNT_OF_NEW_STUDENTS):
     new_students_faculty.append(FACULTIES[random.randint(0, len(FACULTIES)-1)])
 
+#old student go to new classes
 prev_student_classes = generate_student_classes(students, new_classes, students_faculty)
-new_student_classes = generate_student_classes(new_students, new_classes, new_students_faculty)
+#new student go to previous classes
+new_student_classes = generate_student_classes(new_students, classes, new_students_faculty)
 
 people_to_csv(people + new_people, 'data/second_snapshot/people.csv')
 
 entities_to_bulk('data/second_snapshot/students.bulk', students + new_students, True)
 entities_to_bulk('data/second_snapshot/teachers.bulk', teachers + new_teachers)
 entities_to_bulk('data/second_snapshot/courses.bulk', courses + new_courses)
-entities_to_bulk('data/second_snapshot/classes.bulk', classes + new_classes + prev_student_classes)
-entities_to_bulk('data/second_snapshot/student_classes.bulk', student_classes + new_student_classes)
+entities_to_bulk('data/second_snapshot/classes.bulk', classes + new_classes)
+entities_to_bulk('data/second_snapshot/student_classes.bulk', student_classes + new_student_classes + prev_student_classes)

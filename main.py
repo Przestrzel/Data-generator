@@ -56,7 +56,7 @@ new_students = generate_people(student_startbirth, student_endbirth, AMOUNT_OF_N
 new_teachers = generate_people(teacher_startbirth, teacher_endbirth, AMOUNT_OF_NEW_TEACHERS, teachers_id + len(teachers), 2)
 new_people = new_students + new_teachers
 
-#! Changing last_name for requirements of datawarehouse
+#! Changing last_name for requirements (dimension to be changed)  of datawarehouse
 all_students = students + new_students
 for _ in range(int((AMOUNT_OF_STUDENTS + AMOUNT_OF_NEW_STUDENTS) / 10)):
     all_students[random.randint(0, AMOUNT_OF_STUDENTS + AMOUNT_OF_NEW_STUDENTS - 1)].last_name = 'Nowak'

@@ -15,7 +15,7 @@ class Person:
         self.city = city
         self.phone_number = self.random_phone_number()
         self.email = email
-        self.degree = degree # Student // Bachelor // Master // Doctor
+        self.degree = degree
         self.gender = ''
         if first_name[len(first_name)-1] == 'a' or first_name == 'Nicole':
             self.gender = 'kobieta'

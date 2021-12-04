@@ -18,9 +18,9 @@ class Person:
         self.degree = degree
         self.gender = ''
         if first_name[len(first_name)-1] == 'a' or first_name == 'Nicole':
-            self.gender = 'kobieta'
+            self.gender = 'Kobieta'
         else:
-            self.gender = 'mezczyzna'
+            self.gender = 'Mezczyzna'
 
     def get_entity_list(self):
         return [self.id, self.first_name, self.last_name] #If student add city!

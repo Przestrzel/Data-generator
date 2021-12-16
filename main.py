@@ -64,6 +64,13 @@ for _ in range(int((AMOUNT_OF_STUDENTS + AMOUNT_OF_NEW_STUDENTS) / 10)):
 for _ in range(int((AMOUNT_OF_STUDENTS + AMOUNT_OF_NEW_STUDENTS) / 5)):
     all_students[random.randint(0, AMOUNT_OF_STUDENTS + AMOUNT_OF_NEW_STUDENTS - 1)].degree = 'Inzynier'
 
+for _ in range(int((AMOUNT_OF_TEACHERS) / 10)):
+    teachers[random.randint(0, AMOUNT_OF_TEACHERS - 1)].last_name = 'Kowalski'
+
+for _ in range(int((AMOUNT_OF_TEACHERS) / 5)):
+    teachers[random.randint(0, AMOUNT_OF_TEACHERS  - 1)].degree = 'Doktor'
+
+
 AMOUNT_OF_NEW_COURSES = AMOUNT_OF_NEW_TEACHERS
 new_courses = generate_courses(AMOUNT_OF_NEW_COURSES, 1 + len(courses))
 
